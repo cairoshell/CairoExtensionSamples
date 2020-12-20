@@ -84,7 +84,7 @@ namespace Weather
                 }
                 else
                 {
-                    CairoLogger.Instance.Debug("Weather: Got location");
+                    CairoLogger.Debug("Weather: Got location");
 
                     LocationState = LocationApiState.Ok;
                     latitude = locationWatcher.Position.Location.Latitude;
@@ -160,7 +160,7 @@ namespace Weather
                         }
                         catch (Exception e)
                         {
-                            CairoLogger.Instance.Debug("Error fetching weather: " + e.Message);
+                            CairoLogger.Debug("Error fetching weather: " + e.Message);
 
                             if (State == ForecastState.Loading)
                             {
