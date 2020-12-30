@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
-using CairoDesktop.Interop;
+using ManagedShell.Common.Helpers;
 
 namespace Weather
 {
@@ -102,7 +101,7 @@ namespace Weather
             forecast = new Forecast();
             forecast.WeatherChanged += Forecast_WeatherChanged;
 
-            if (!Shell.IsWindows10OrBetter)
+            if (!EnvironmentHelper.IsWindows10OrBetter)
             {
                 OpenWeatherMenuItem.Visibility = Visibility.Collapsed;
             }
@@ -215,7 +214,7 @@ namespace Weather
         #region Menu items
         private void OpenWeatherMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            Shell.ExecuteProcess("msnweather:");
+            ShellHelper.ExecuteProcess("msnweather:");
         }
 
         private void SettingsMenuItem_OnClick(object sender, RoutedEventArgs e)

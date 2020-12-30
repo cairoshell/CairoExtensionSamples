@@ -102,6 +102,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ManagedShell">
+      <Version>0.0.21</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if not exist "%25localappdata%25\Cairo_Development_Team\Extensions" mkdir "%25localappdata%25\Cairo_Development_Team\Extensions"
