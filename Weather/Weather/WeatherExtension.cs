@@ -1,22 +1,22 @@
-﻿using CairoDesktop.ObjectModel;
-using System.ComponentModel.Composition;
+﻿using CairoDesktop;
+using CairoDesktop.Application.Interfaces;
+using CairoDesktop.ObjectModel;
 
 namespace Weather
 {
-    [Export(typeof(ShellExtension))]
-    public sealed class WeatherExtension : ShellExtension
+    public sealed class WeatherExtension : IShellExtension
     {
         private MenuExtra _weatherMenuExtra;
 
-        public override void Start()
+        public void Start()
         {
             _weatherMenuExtra = new WeatherMenuExtra();
-            _CairoShell.Instance.MenuExtras.Add(_weatherMenuExtra);
+            CairoApplication.Current.MenuExtras.Add(_weatherMenuExtra);
         }
 
-        public override void Stop()
+        public void Stop()
         {
-            _CairoShell.Instance.MenuExtras.Remove(_weatherMenuExtra);
+            CairoApplication.Current.MenuExtras.Remove(_weatherMenuExtra);
             _weatherMenuExtra = null;
         }
     }

@@ -34,16 +34,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CairoDesktop">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Cairo Shell\CairoDesktop.exe</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.exe</HintPath>
+    </Reference>
+    <Reference Include="CairoDesktop.Application">
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Application.dll</HintPath>
     </Reference>
     <Reference Include="CairoDesktop.Common">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Cairo Shell\CairoDesktop.Common.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Common.dll</HintPath>
     </Reference>
     <Reference Include="CairoDesktop.Interop">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Cairo Shell\CairoDesktop.Interop.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -58,6 +58,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyRegistrant.cs" />
     <Compile Include="Forecast.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -100,6 +101,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ManagedShell">
+      <Version>0.0.21</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

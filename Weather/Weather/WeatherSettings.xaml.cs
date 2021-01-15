@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using CairoDesktop.Interop;
+using ManagedShell.Common.Helpers;
 
 namespace Weather
 {
@@ -30,7 +30,7 @@ namespace Weather
 
             ApiKeyTextBox.Text = Properties.Settings.Default.ApiKey;
 
-            if (!Shell.IsWindows10OrBetter)
+            if (!EnvironmentHelper.IsWindows10OrBetter)
             {
                 LocationSettingsStackPanel.Visibility = Visibility.Collapsed;
             }
@@ -46,7 +46,7 @@ namespace Weather
 
         private void OpenLocationSettingsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Shell.ExecuteProcess("ms-settings:privacy-location");
+            ShellHelper.ExecuteProcess("ms-settings:privacy-location");
         }
     }
 }
