@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <Reference Include="CairoDesktop.Application">
-      <HintPath>..\..\cairoshell\Cairo Desktop\Build\x64\Debug\CairoDesktop.Application.dll</HintPath>
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Application.dll</HintPath>
     </Reference>
   </ItemGroup>
 
