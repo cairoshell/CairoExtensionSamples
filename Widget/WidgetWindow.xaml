@@ -1,0 +1,22 @@
+﻿<Window x:Class="Widget.WidgetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sample Widget"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        Background="Transparent"
+        Height="200"
+        Width="200"
+        MouseDown="WidgetWindow_OnMouseDown">
+    <Grid>
+        <Ellipse Fill="#9936A4EB"
+                 Width="200"
+                 Height="200" />
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="White">
+            Hello world!
+        </TextBlock>
+    </Grid>
+</Window>
