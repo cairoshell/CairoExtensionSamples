@@ -38,7 +38,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="CairoDesktop.Infrastructure">
-      <HintPath>..\..\..\..\..\..\Program Files\Cairo Shell\CairoDesktop.Infrastructure.dll</HintPath>
+      <HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Infrastructure.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
