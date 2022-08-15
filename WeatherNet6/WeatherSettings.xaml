@@ -1,0 +1,54 @@
+﻿<Window x:Class="Weather.WeatherSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Closing="WeatherSettings_OnClosing"
+        Title="Weather Settings"
+        SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground"
+                    Value="#ffe9ecf4" />
+            <Setter Property="Margin"
+                    Value="5,4" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="MinWidth"
+                    Value="100" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground"
+                    Value="#ffe9ecf4" />
+            <Setter Property="Background"
+                    Value="#ff111111" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="Padding"
+                    Value="3" />
+            <Setter Property="Width"
+                    Value="240" />
+            <Setter Property="Height"
+                    Value="24" />
+        </Style>
+    </Window.Resources>
+    <Grid Background="#ff191a1e">
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="OpenWeatherMap API key:" />
+                <TextBox Name="ApiKeyTextBox" />
+            </StackPanel>
+            <TextBlock Text="You can obtain this for free from openweathermap.org."
+                       Foreground="#55ffffff" />
+            <StackPanel Name="LocationSettingsStackPanel">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="OpenLocationSettingsButton"
+                            Click="OpenLocationSettingsButton_OnClick"
+                            Height="24"
+                            Padding="10,0"
+                            Margin="5,20,0,0">Open Windows location settings</Button>
+                </StackPanel>
+                <TextBlock Text="Location must be enabled to retrieve weather information."
+                           Foreground="#55ffffff" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
