@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Platforms>AnyCPU</Platforms>
+		<UseWPF>True</UseWPF>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>9</LangVersion>
+		<CsWinRTEmbedded>true</CsWinRTEmbedded>
+		<CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Condition="'$(TargetFramework)' == 'net6.0-windows'" Include="Microsoft.Windows.CsWinRT" Version="1.6.4" />
+		<PackageReference Include="ManagedShell" Version="0.0.186" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="CairoDesktop.Application">
+			<HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Application.dll</HintPath>
+		</Reference>
+		<Reference Include="CairoDesktop.Infrastructure">
+			<HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Infrastructure.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if not exist &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot; mkdir &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;%25localappdata%25\Cairo_Development_Team\Extensions\$(TargetName).dll&quot;" />
+	</Target>
+
+	<PropertyGroup>
+		<CsWinRTIncludes>
+			Windows.Devices.Geolocation;
+			Windows.Foundation;
+		</CsWinRTIncludes>
+		<CsWinRTExcludes>
+			Windows.Foundation.Diagnostics;
+			Windows.Foundation.PropertyType;
+			Windows.Storage.BulkAccess;
+		</CsWinRTExcludes>
+	</PropertyGroup>
+
+</Project>
