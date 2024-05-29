@@ -14,7 +14,7 @@
 
 	<ItemGroup>
 		<PackageReference Condition="'$(TargetFramework)' == 'net6.0-windows'" Include="Microsoft.Windows.CsWinRT" Version="1.6.4" />
-		<PackageReference Include="ManagedShell" Version="0.0.186" />
+		<PackageReference Include="ManagedShell" Version="0.0.254" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="if not exist &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot; mkdir &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;%25localappdata%25\Cairo_Development_Team\Extensions\$(TargetName).dll&quot;" />
+		<Exec Command="if not exist &quot;%25localappdata%25\Cairo Desktop\Extensions&quot; mkdir &quot;%25localappdata%25\Cairo Desktop\Extensions&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;%25localappdata%25\Cairo Desktop\Extensions\$(TargetName).dll&quot;" />
 	</Target>
 
 	<PropertyGroup>

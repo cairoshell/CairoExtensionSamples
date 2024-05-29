@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFrameworks>net471;net6.0-windows</TargetFrameworks>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if not exist &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot; mkdir &quot;%25localappdata%25\Cairo_Development_Team\Extensions&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;%25localappdata%25\Cairo_Development_Team\Extensions\$(TargetName).dll&quot;" />
+    <Exec Command="if not exist &quot;%25localappdata%25\Cairo Desktop\Extensions&quot; mkdir &quot;%25localappdata%25\Cairo Desktop\Extensions&quot;&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;%25localappdata%25\Cairo Desktop\Extensions\$(TargetName).dll&quot;" />
   </Target>
 
 </Project>

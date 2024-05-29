@@ -18,7 +18,11 @@ namespace Places.ShellFolders
 
         public void MenuItem_Click<TEventArgs>(object sender, TEventArgs e) where TEventArgs : EventArgs
         {
-            Process.Start(_command);
+            Process.Start(new ProcessStartInfo()
+            {
+                UseShellExecute = true,
+                FileName = _command
+            });
         }
     }
 }

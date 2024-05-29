@@ -5,11 +5,11 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Places.ShellFolders", "Places.ShellFolders\Places.ShellFolders.csproj", "{CC6179B7-C785-4A64-995F-734F0B5467FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather", "Weather\Weather.csproj", "{DEE07FD7-623D-4A65-8545-D99F2FCF3599}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Widget", "Widget\Widget.csproj", "{6536F3E1-5437-4E75-A26D-35304BD28CD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherNet6", "WeatherNet6\WeatherNet6.csproj", "{21F3EE84-EEBB-4DFE-B9DA-2B3E30487845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather", "Weather\Weather.csproj", "{DEE07FD7-623D-4A65-8545-D99F2FCF3599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{CC6179B7-C785-4A64-995F-734F0B5467FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC6179B7-C785-4A64-995F-734F0B5467FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC6179B7-C785-4A64-995F-734F0B5467FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6536F3E1-5437-4E75-A26D-35304BD28CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6536F3E1-5437-4E75-A26D-35304BD28CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6536F3E1-5437-4E75-A26D-35304BD28CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{21F3EE84-EEBB-4DFE-B9DA-2B3E30487845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21F3EE84-EEBB-4DFE-B9DA-2B3E30487845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21F3EE84-EEBB-4DFE-B9DA-2B3E30487845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE07FD7-623D-4A65-8545-D99F2FCF3599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
