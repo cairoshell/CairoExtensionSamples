@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using CairoDesktop.Application.Interfaces;
 using ManagedShell.Common.Helpers;
 
 namespace Weather
@@ -90,9 +91,11 @@ namespace Weather
 
         private Forecast forecast;
         #endregion
-        
-        public WeatherMenu()
+
+        private readonly ICommandService _commandService;
+        public WeatherMenu(ICommandService commandService)
         {
+            _commandService = commandService;
             InitializeComponent();
 
             DataContext = this;
@@ -144,7 +147,7 @@ namespace Weather
         {
             if (forecast != null)
             {
-                Application.Current.Dispatcher.Invoke(() =>
+                Application.Current?.Dispatcher.Invoke(() =>
                 {
                     string temp = Math.Round(forecast.Temperature) + "°";
                     if (string.IsNullOrEmpty(forecast.CurrentConditions))
@@ -168,7 +171,7 @@ namespace Weather
 
         private void onForecastLoading()
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current?.Dispatcher.Invoke(() =>
             {
                 CurrentTemp = forecast.LocationState != Forecast.LocationApiState.Ok ? "Weather location unknown" : "Weather loading";
                 hideDetails();
@@ -177,7 +180,7 @@ namespace Weather
 
         private void onFetchError()
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current?.Dispatcher.Invoke(() =>
             {
                 CurrentTemp = "Weather error";
                 hideDetails();
@@ -186,7 +189,7 @@ namespace Weather
 
         private void onApiKeyError()
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current?.Dispatcher.Invoke(() =>
             {
                 CurrentTemp = "Weather API key required";
                 hideDetails();
@@ -195,7 +198,7 @@ namespace Weather
 
         private void onAccessDenied()
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current?.Dispatcher.Invoke(() =>
             {
                 CurrentTemp = "Weather location access denied";
                 hideDetails();
@@ -229,8 +232,7 @@ namespace Weather
 
         private void SettingsMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            WeatherSettings.Instance.Show();
-            WeatherSettings.Instance.Activate();
+            _commandService.InvokeCommand("WeatherSettings");
         }
         #endregion
     }

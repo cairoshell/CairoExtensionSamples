@@ -14,7 +14,7 @@
 
 	<ItemGroup>
 		<PackageReference Condition="'$(TargetFramework)' == 'net6.0-windows'" Include="Microsoft.Windows.CsWinRT" Version="1.6.4" />
-		<PackageReference Include="ManagedShell" Version="0.0.254" />
+		<PackageReference Include="ManagedShell" Version="0.0.320" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,10 +23,10 @@
 
 	<ItemGroup>
 		<Reference Include="CairoDesktop.Application">
-			<HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Application.dll</HintPath>
+			<HintPath>C:\Users\johns\source\repos\cairoshell\Cairo Desktop\Cairo Desktop\bin\x64\Debug\net6.0-windows\win-x64\CairoDesktop.Application.dll</HintPath>
 		</Reference>
 		<Reference Include="CairoDesktop.Infrastructure">
-			<HintPath>C:\Program Files\Cairo Shell\CairoDesktop.Infrastructure.dll</HintPath>
+			<HintPath>C:\Users\johns\source\repos\cairoshell\Cairo Desktop\Cairo Desktop\bin\x64\Debug\net6.0-windows\win-x64\CairoDesktop.Infrastructure.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
