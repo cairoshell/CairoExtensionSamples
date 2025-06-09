@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="Weather.WeatherMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Unloaded="UserControl_Unloaded">
     <Menu Style="{StaticResource CairoMenuBarMainContainerStyle}">
         <MenuItem Header="{Binding CurrentTemp}"
                   ItemContainerStyle="{StaticResource CairoMenuItemContainerStyle}">

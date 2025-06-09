@@ -99,22 +99,11 @@ namespace Weather
             InitializeComponent();
 
             DataContext = this;
-            Dispatcher.ShutdownStarted += Dispatcher_ShutdownStarted;
 
             if (EnvironmentHelper.IsWindows10OrBetter)
             {
                 forecast = new Forecast();
                 forecast.WeatherChanged += Forecast_WeatherChanged;
-            }
-        }
-
-        private void Dispatcher_ShutdownStarted(object sender, EventArgs e)
-        {
-            if (forecast != null)
-            {
-                forecast.WeatherChanged -= Forecast_WeatherChanged;
-                forecast.Dispose();
-                forecast = null;
             }
         }
 
@@ -140,33 +129,45 @@ namespace Weather
                     break;
             }
         }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (forecast != null)
+            {
+                forecast.WeatherChanged -= Forecast_WeatherChanged;
+                forecast.Dispose();
+                forecast = null;
+            }
+        }
         #endregion
 
         #region UI helpers
         private void updateForecast()
         {
-            if (forecast != null)
+            Application.Current?.Dispatcher.Invoke(() =>
             {
-                Application.Current?.Dispatcher.Invoke(() =>
+                if (forecast == null)
                 {
-                    string temp = Math.Round(forecast.Temperature) + "°";
-                    if (string.IsNullOrEmpty(forecast.CurrentConditions))
-                    {
-                        CurrentTemp = temp;
-                    }
-                    else
-                    {
-                        CurrentTemp = forecast.CurrentConditions + ", " + temp;
-                    }
+                    return;
+                }
 
-                    FeelsLike = "Feels like: " + Math.Round(forecast.FeelsLike) + "°";
-                    Humidity = "Humidity: " + forecast.Humidity + forecast.HumidityUnit;
-                    Pressure = "Pressure: " + forecast.Pressure + " " + forecast.PressureUnit;
-                    Wind = "Wind: " + forecast.WindDirection + " " + forecast.WindSpeed + " " + forecast.WindSpeedUnit;
+                string temp = Math.Round(forecast.Temperature) + "°";
+                if (string.IsNullOrEmpty(forecast.CurrentConditions))
+                {
+                    CurrentTemp = temp;
+                }
+                else
+                {
+                    CurrentTemp = forecast.CurrentConditions + ", " + temp;
+                }
 
-                    showDetails();
-                });
-            }
+                FeelsLike = "Feels like: " + Math.Round(forecast.FeelsLike) + "°";
+                Humidity = "Humidity: " + forecast.Humidity + forecast.HumidityUnit;
+                Pressure = "Pressure: " + forecast.Pressure + " " + forecast.PressureUnit;
+                Wind = "Wind: " + forecast.WindDirection + " " + forecast.WindSpeed + " " + forecast.WindSpeedUnit;
+
+                showDetails();
+            });
         }
 
         private void onForecastLoading()

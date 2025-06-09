@@ -281,6 +281,7 @@ namespace Weather
             }
 
             weatherTimer.Stop();
+            Properties.Settings.Default.PropertyChanged -= Settings_PropertyChanged;
         }
         #endregion
     }
